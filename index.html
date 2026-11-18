@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sajt01 — statički sajt bez build koraka</title>
+  <meta name="description" content="Jednostavan statički sajt napravljen od čistog HTML-a, CSS-a i JavaScript-a, hostovan na Cloudflare Pages.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./">Sajt<span class="brand-mark">01</span></a>
+
+      <nav class="site-nav" aria-label="Glavna navigacija">
+        <ul>
+          <li><a href="#o-nama">O nama</a></li>
+          <li><a href="#usluge">Usluge</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" type="button" data-theme-toggle hidden>
+        <span aria-hidden="true" data-theme-icon>◐</span>
+        <span class="visually-hidden" data-theme-label>Promeni temu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Bez frameworka i build koraka</p>
+        <h1>Statički sajt koji se deployuje kao što jeste.</h1>
+        <p class="lead">
+          Tri fajla, nula zavisnosti. HTML za strukturu, CSS za izgled i malo
+          vanilla JavaScript-a za detalje koji moraju da rade bez alata.
+        </p>
+        <p class="hero-actions">
+          <a class="button" href="#usluge">Pogledaj usluge</a>
+          <a class="button button-ghost" href="#kontakt">Kontaktiraj nas</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="o-nama" class="section">
+      <div class="container">
+        <h2>O nama</h2>
+        <div class="prose">
+          <p>
+            Ovaj projekat je namerno minimalan: nema paketa, nema transpajlera i
+            nema koraka pripreme. Ono što vidiš u editoru je ono što se šalje na
+            server.
+          </p>
+          <p>
+            Zahvaljujući tome, sajt se brzo učitava, lako održava i može da se
+            hostuje bilo gde — od Cloudflare Pages-a do običnog deljenog hostinga.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="usluge" class="section section-alt">
+      <div class="container">
+        <h2>Usluge</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Izrada sajta</h3>
+            <p>Semantički HTML i responzivan CSS, bez teških zavisnosti.</p>
+          </article>
+          <article class="card">
+            <h3>Optimizacija</h3>
+            <p>Brzo učitavanje, pristupačnost i uredne meta oznake.</p>
+          </article>
+          <article class="card">
+            <h3>Hosting</h3>
+            <p>Postavljanje na Cloudflare Pages sa automatskim deploy-om.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section">
+      <div class="container">
+        <h2>Kontakt</h2>
+        <p class="lead">Javi se mejlom, odgovaramo u toku radnog dana.</p>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">Mejl</span>
+            <a href="mailto:kontakt@example.com">kontakt@example.com</a>
+          </li>
+          <li>
+            <span class="contact-label">Lokacija</span>
+            <span>Beograd, Srbija</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-year>2026</span> Sajt01. Sva prava zadržana.</p>
+      <p class="footer-note">Napravljeno bez build koraka.</p>
+    </div>
+  </footer>
+</body>
+</html>

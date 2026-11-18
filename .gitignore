@@ -1,0 +1,11 @@
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Alati (ostaju ignorisani iako projekat trenutno nema build korak)
+node_modules/
+dist/
+.wrangler/
