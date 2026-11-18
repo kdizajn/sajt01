@@ -6,12 +6,20 @@ Uputstvo za rad u ovom repozitorijumu. Kratko i konkretno — dopunjuj samo onim
 
 Statički sajt od čistog HTML-a, CSS-a i vanilla JavaScript-a. **Nema build koraka**: nema `package.json`, nema zavisnosti, nema transpajliranja — fajlovi idu na hosting onakvi kakvi su. Hosting: Cloudflare — live na `https://sajt01.kdizajn-top.workers.dev`.
 
+## Faza: vežba — sajt nije za javnost
+
+- Sajt je tehnički javno dostupan na `workers.dev`, ali se **ne objavljuje**: ne deli URL, ne stavljaj ga u sadržaj, README ni commit poruke, ne dodavati „podeli" dugmad.
+- `robots.txt` (`Disallow: /`) i `<meta name="robots" content="noindex, nofollow">` u `index.html` postoje namerno. **Ne uklanjaj ih** dok korisnik izričito ne kaže da sajt ide javno.
+- Placeholder podaci (`kontakt@example.com`, lokacija „Beograd") ostaju dok traje vežba — ne „popravljaj" ih bez pitanja.
+- Tek pred javno lansiranje: skloniti `noindex` meta, obrisati ili otvoriti `robots.txt`, zameniti placeholdere, pa onda podeliti URL.
+
 ## Struktura
 
 - `index.html` — jedina stranica, unosna tačka sajta.
 - `style.css` — svi stilovi; tema definisana CSS varijablama u `:root`.
 - `script.js` — vanilla JS, jedan IIFE, učitan sa `defer`.
 - `favicon.svg` — ikonica; povezana u `<head>`, ne očekuj `favicon.ico`.
+- `robots.txt` — namerno zabranjuje indeksiranje (`Disallow: /`), vidi sekciju o fazi vežbe.
 - Nova stranica = novi `*.html` u korenu koji preuzima isti `<head>` i relativne putanje.
 
 ## Okruženje (provereno)

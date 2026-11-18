@@ -1,0 +1,4 @@
+# Sajt je u fazi vežbe i ne treba da bude indeksiran.
+# Ukloniti ovaj fajl (ili otvoriti pristup) tek kada sajt ide javno.
+User-agent: *
+Disallow: /
