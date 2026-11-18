@@ -4,7 +4,7 @@ Uputstvo za rad u ovom repozitorijumu. Kratko i konkretno — dopunjuj samo onim
 
 ## Šta je ovo
 
-Statički sajt od čistog HTML-a, CSS-a i vanilla JavaScript-a. **Nema build koraka**: nema `package.json`, nema zavisnosti, nema transpajliranja — fajlovi idu na hosting onakvi kakvi su. Hosting: Cloudflare Pages.
+Statički sajt od čistog HTML-a, CSS-a i vanilla JavaScript-a. **Nema build koraka**: nema `package.json`, nema zavisnosti, nema transpajliranja — fajlovi idu na hosting onakvi kakvi su. Hosting: Cloudflare — live na `https://sajt01.kdizajn-top.workers.dev`.
 
 ## Struktura
 
@@ -38,12 +38,13 @@ Nema hot reload-a — posle izmene osveži stranicu ručno. Server služi koren 
 - `core.autocrlf=true`: blob-ovi u repozitorijumu su LF, a Git pri checkout-u vraća CRLF u radni direktorijum. To je očekivano — ne „popravljaj“ ga i ne dodaj `.gitattributes` bez potrebe. Nove fajlove piši sa LF.
 - Poruke commit-a: kratko, na srpskom, u imperativu (npr. `dodaj favicon`).
 
-## Deploy na Cloudflare Pages
+## Deploy na Cloudflare
 
-- Kada se repozitorijum poveže u Cloudflare Pages, push na `main` pokreće deploy.
-- Postavke: Framework preset `None`, Build command prazan, Build output directory `/`.
+- Live URL: `https://sajt01.kdizajn-top.workers.dev` — projekat je Worker sa statičkim asset-ima, **ne** `*.pages.dev`. Ne pogađaj adresu, pročitaj je iz dashboarda.
+- Repo je povezan sa Cloudflare-om: push na `main` pokreće automatski deploy.
+- Postavke: Framework preset `None`, build command prazan, output directory `/`.
+- Cloudflare build log pominje Wrangler — to je njihov interni alat; repo i dalje ne treba `wrangler.toml` ni `package.json`.
 - Nema generisanih artefakata: ono što je u repozitorijumu je ono što se servira. Ne pravi `dist/`.
-- Ručni upload samo ako je `wrangler` instaliran: `wrangler pages deploy .`
 
 ## Konvencije koje se ne vide iz koda
 
@@ -61,7 +62,8 @@ Nema hot reload-a — posle izmene osveži stranicu ručno. Server služi koren 
 1. `python -m http.server 8000` i proveri da `/`, `/style.css` i `/script.js` vraćaju 200.
 2. Otvori stranicu i proveri da nema grešaka u konzoli.
 3. `Select-String -Pattern '(href|src)="/'` — ne sme biti apsolutnih putanja.
-4. `kontakt@example.com` i lokacija u sekciji `#kontakt` su placeholderi — ne ostavljaj ih u produkciji.
+4. Posle push-a proveri live URL: `Invoke-WebRequest` na `/`, `/style.css` i `/script.js` — deploy traje nekoliko sekundi.
+5. `kontakt@example.com` i lokacija u sekciji `#kontakt` su placeholderi — ne ostavljaj ih u produkciji.
 
 ## Ne radi
 
