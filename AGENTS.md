@@ -32,13 +32,15 @@ Nema hot reload-a — posle izmene osveži stranicu ručno. Server služi koren 
 
 ## Git
 
-- Grana je `main`; remote još nije podešen (dodaje se kad se repo poveže sa GitHub-om).
+- `origin` → `https://github.com/kdizajn/sajt01.git`; `main` prati `origin/main`. Kredencijale čuva Git Credential Manager, pa push obično ne traži ponovnu prijavu.
+- Push: `& 'C:\Program Files\Git\cmd\git.exe' -C 'C:\KRLE\GIT\sajt01' push`
+- PowerShell prikaže git-ov stderr kao `NativeCommandError` i `exit code 1` **i kada je komanda uspela**. Pre nego što prijaviš grešku, proveri `git status -sb` ili `git ls-remote --heads origin`.
 - `core.autocrlf=true`: blob-ovi u repozitorijumu su LF, a Git pri checkout-u vraća CRLF u radni direktorijum. To je očekivano — ne „popravljaj“ ga i ne dodaj `.gitattributes` bez potrebe. Nove fajlove piši sa LF.
 - Poruke commit-a: kratko, na srpskom, u imperativu (npr. `dodaj favicon`).
 
 ## Deploy na Cloudflare Pages
 
-- Povezivanje ide preko GitHub repozitorijuma; push na `main` pokreće deploy.
+- Kada se repozitorijum poveže u Cloudflare Pages, push na `main` pokreće deploy.
 - Postavke: Framework preset `None`, Build command prazan, Build output directory `/`.
 - Nema generisanih artefakata: ono što je u repozitorijumu je ono što se servira. Ne pravi `dist/`.
 - Ručni upload samo ako je `wrangler` instaliran: `wrangler pages deploy .`
